@@ -150,7 +150,7 @@ export default function Books() {
         <div className="container">
           <div className="row">
             <div className="col">
-              <h2>Patiekalų skaičius: {dishesSum} </h2>
+              <h2>Knygų skaičius: {dishesSum} </h2>
             </div>
           </div>
         </div>

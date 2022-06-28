@@ -12,8 +12,6 @@ import Accordion from 'react-bootstrap/Accordion'
 
 
 export default function BookOrdering() {
-  const [allRestaurants, setAllRestaurants] = useState([]);
-  const [selectedRestaurantId, setSelectedRestaurantId] = useState([]);
   const [selectedMenuId, setSelectedMenuId] = useState([]);
   const [selectedRestaurantMenus, setSelectedRestaurantMenus] = useState([]);
   const [allDishes, setAllDishes] = useState([]);
@@ -84,7 +82,7 @@ export default function BookOrdering() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:8080/api/restaurants/menu/dishes`,
+        `http://localhost:8080/api/books/all`,
         {
           method: "GET",
           headers: {
@@ -105,7 +103,7 @@ export default function BookOrdering() {
         <div className="container">
           <div className="row">
             <div className="col">
-              <h2>Rinkitės iš {dishesSum} patiekalų  </h2>
+              <h2>Rinkitės iš {dishesSum} knygų  </h2>
             </div>
           </div>
         </div>
@@ -116,46 +114,10 @@ export default function BookOrdering() {
           <div >
             <Accordion defaultActiveKey="0" >
               <Accordion.Item eventKey="0" >
-                <Accordion.Header >Pasirinkite sąrašą patiekalų iš norimo restorano ir meniu</Accordion.Header>
+                <Accordion.Header >Pasirinkite knygas</Accordion.Header>
                 <Accordion.Body >
                   <div className="add">
-                    {/* <div className="row text-center add__container">
-                      <form
-                        onSubmit={handleSubmit(onSubmit)}
-                        className="col-12 col-sm-6 col-md-6 col-lg-6 input-group my-3"
-                      >
-
-                        <select
-                          {...register("restaurantId", {
-                            required: true,
-                          })}
-                          className="form-control add__description"
-                          type="text"
-                          onChange={(e) =>  setSelectedRestaurantId(e.target.value) }
-                        >
-                          <option value={""}>--Pasirinkite restoraną--</option>
-                          {allRestaurants.map((option) => (
-                            <option value={option.id}>{option.name}</option>
-                          ))}
-
-                        </select>
-
-                        <select
-                          {...register("menuId", {
-                            required: true,
-                          })}
-                          className="form-control add__description"
-                          type="text"
-                          onChange={(e) => setSelectedMenuId(e.target.value) }
-                        >
-                          <option value={""}>--Pasirinkite meniu--</option>
-                          {selectedRestaurantMenus.map((option) => (
-                            <option value={option.id}>{option.name}</option>
-                          ))}
-                        </select>
-
-                      </form>
-                    </div> */}
+                    
        
                   </div>
                 </Accordion.Body>
@@ -165,7 +127,6 @@ export default function BookOrdering() {
           </div>
         </div>
 
-        {/* <div className="mt-5 list"> */}
         <div className="container" style={{ paddingRight: 0 }}>
           <div
             className="col-12 expense"

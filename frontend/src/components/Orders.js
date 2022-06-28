@@ -143,7 +143,7 @@ export default function Orders() {
         <div className="container">
           <div className="row">
             <div className="col">
-              <h2>Jūs pasirinkę {ordersSum} patiekalus  </h2>
+              <h2>Jūs pasirinkę {ordersSum} knygas  </h2>
             </div>
           </div>
         </div>
@@ -177,29 +177,25 @@ export default function Orders() {
               <Table hover>
                 <thead>
                   <tr>
-                    <th>Restoranas</th>
-                    <th>Meniu</th>
+                  <th>Vartotojas</th>
+                    <th>Kategorija</th>
                     <th>Pavadinimas</th>
-                    <th>Kaina</th>
-                    <th>Kiekis</th>
-                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   {allOrders.map((order) => {
                     return (
 
-                      <tr key={order.dishId}>
-                        <td>{order.restaurantName}&nbsp;</td>
-                        <td>{order.menuName}&nbsp;</td>
-                        <td>{order.dishName}&nbsp;</td>
-                        <td>{order.dishPrice}&euro;&nbsp;</td>
+                      <tr key={order.bookId}>
+                        <td>{order.userEmail}&nbsp;</td>
+                        <td>{order.categoryName}&nbsp;</td>
+                        <td>{order.bookName}&nbsp;</td>
 
 
                         <td
                         >
                           <button
-                            onClick={() => showOrderDecreaseModal(order.dishId)}
+                            onClick={() => showOrderDecreaseModal(order.bookId)}
                             className="btn"
                             type="button"
                             style={{ paddingTop: 0, paddingBottom: 10 }}
@@ -213,18 +209,6 @@ export default function Orders() {
 
                           {order.orders}
 
-                          <button
-                            onClick={() => showOrderModal(order.dishId)}
-                            className="btn"
-                            type="button"
-                            style={{ paddingTop: 0, paddingBottom: 10 }}
-                          >
-                            <FontAwesomeIcon
-                              icon={faCirclePlus}
-                              className="add__btn__expense"
-                              style={{ width: "20px" }}
-                            />
-                          </button>
                         </td>
                       </tr>
                     );
@@ -236,12 +220,7 @@ export default function Orders() {
                   confirmModal={removeDish}
                   id={orderDecreaseId}
                 />
-                <OrderModal
-                  showModal={displayOrderModal}
-                  hideModal={hideOrderModal}
-                  confirmModal={orderDish}
-                  id={orderId}
-                />
+
               </Table>
             </div>
 

@@ -119,7 +119,7 @@ export default function OrdersAdministration() {
     setDisplayOrderModal(false);
   };
 
-  const ordersSum = allOrders.reduce((n, { orders }) => n + orders, 0);
+  const ordersSum = allOrders.reduce((n) => n + 1, 0);
 
 
   useEffect(() => {
@@ -146,7 +146,7 @@ export default function OrdersAdministration() {
         <div className="container">
           <div className="row">
             <div className="col">
-              <h2>Vartotojai pasirinkę {ordersSum} patiekalus  </h2>
+              <h2>Vartotojai pasirinkę {ordersSum} knygas  </h2>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function OrdersAdministration() {
           <div >
             <Accordion defaultActiveKey="0" >
               <Accordion.Item eventKey="0" >
-                <Accordion.Header >Koreguokite savo pasirinkimus</Accordion.Header>
+                <Accordion.Header >Koreguokite vartotojų pasirinkimus</Accordion.Header>
                 <Accordion.Body >
                   <div className="add">
                     
@@ -176,18 +176,13 @@ export default function OrdersAdministration() {
             className="col-12 expense"
             style={{ paddingLeft: 0, paddingRight: 0 }}
           >
-            {/* <h2 className="expense__title">Išlaidos</h2> */}
             <div className="expense__list">
               <Table hover>
                 <thead>
                   <tr>
                     <th>Vartotojas</th>
-                    <th>Restoranas</th>
-                    <th>Meniu</th>
+                    <th>Kategorija</th>
                     <th>Pavadinimas</th>
-                    <th>Kaina</th>
-                    <th>Kiekis</th>
-                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -196,10 +191,8 @@ export default function OrdersAdministration() {
 
                       <tr key={order.dishId}>
                         <td>{order.userEmail}&nbsp;</td>
-                        <td>{order.restaurantName}&nbsp;</td>
-                        <td>{order.menuName}&nbsp;</td>
-                        <td>{order.dishName}&nbsp;</td>
-                        <td>{order.dishPrice}&euro;&nbsp;</td>
+                        <td>{order.categoryName}&nbsp;</td>
+                        <td>{order.bookName}&nbsp;</td>
 
 
                         <td
@@ -218,20 +211,6 @@ export default function OrdersAdministration() {
                             />
                           </button>
 
-                          {order.orders}
-
-                          <button
-                            onClick={() => showOrderModal(order.userId, order.dishId)}
-                            className="btn"
-                            type="button"
-                            style={{ paddingTop: 0, paddingBottom: 10 }}
-                          >
-                            <FontAwesomeIcon
-                              icon={faCirclePlus}
-                              className="add__btn__expense"
-                              style={{ width: "20px" }}
-                            />
-                          </button>
                         </td>
                       </tr>
                     );
@@ -243,12 +222,7 @@ export default function OrdersAdministration() {
                   confirmModal={removeDish}
                   id={orderDecreaseId}
                 />
-                <OrderModal
-                  showModal={displayOrderModal}
-                  hideModal={hideOrderModal}
-                  confirmModal={orderDish}
-                  id={orderId}
-                />
+
               </Table>
             </div>
 

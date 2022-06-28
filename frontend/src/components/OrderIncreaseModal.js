@@ -13,7 +13,7 @@ const OrderIncreaseModal = ({ showModal, hideModal, confirmModal, id }) => {
       </Modal.Header>
 
       <Modal.Body>
-        <div className="alert alert-danger">Ar tikrai norite užsakyti patiekalą?</div>
+        <div className="alert alert-danger">Ar tikrai norite užsakyti knygą?</div>
       </Modal.Body>
 
       <Modal.Footer>
