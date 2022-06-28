@@ -3,7 +3,6 @@ package lt.vtmc.egzaminas.controllers;
 import lt.vtmc.egzaminas.services.OrderService;
 import lt.vtmc.egzaminas.models.Order;
 import lt.vtmc.egzaminas.payloads.responses.OrderResponse;
-import lt.vtmc.egzaminas.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
