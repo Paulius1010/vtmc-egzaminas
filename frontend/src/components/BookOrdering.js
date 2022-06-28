@@ -60,7 +60,7 @@ export default function BookOrdering() {
       successMessage("Užsakyta");
       reset();
     } else {
-      errorMessage("Klaida!");
+      errorMessage("Klaida! Knyga jau užsakyta kito vartotojo!");
     }
 
     setForceRender(!forceRender);

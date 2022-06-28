@@ -53,15 +53,23 @@ public class OrderService {
         String currentPrincipalEmail = getCurrentPrincipalEmail();
         User user = userService.getUserByEmail(currentPrincipalEmail).orElse(null);
         Book book = bookService.getBookById(bookId).get();
-        Order order = new Order(user, book);
-        return orderRepository.save(order);
+        if (book.getBooked() == false) {
+            Order order = new Order(user, book);
+            return orderRepository.save(order);
+        } else {
+            return null;
+        }
     }
 
     public Order saveNewOrderByAdmin(Long userId, Long bookId) {
         User user = userService.getUserById(userId).get();
         Book book = bookService.getBookById(bookId).get();
-        Order order = new Order(user, book);
-        return orderRepository.save(order);
+        if (book.getBooked() == false) {
+            Order order = new Order(user, book);
+            return orderRepository.save(order);
+        } else {
+            return null;
+        }
     }
 
     public String deleteOrder(Long bookId) {
