@@ -3,6 +3,7 @@ package lt.vtmc.egzaminas.controllers;
 import lt.vtmc.egzaminas.models.Book;
 import lt.vtmc.egzaminas.payloads.requests.BookRequest;
 import lt.vtmc.egzaminas.payloads.requests.BookUpdateRequest;
+import lt.vtmc.egzaminas.payloads.responses.BookResponse;
 import lt.vtmc.egzaminas.payloads.responses.CategoryResponse;
 import lt.vtmc.egzaminas.services.BookService;
 import lt.vtmc.egzaminas.services.CategoryService;
@@ -26,8 +27,8 @@ public class BookController {
 
 
     @GetMapping(value = "/all")
-    public ResponseEntity<List<CategoryResponse>> fetchAllCategories() {
-        return ResponseEntity.ok().body(this.categoryService.getAllCategories());
+    public ResponseEntity<List<BookResponse>> fetchAllBooks() {
+        return ResponseEntity.ok().body(this.bookService.getAllBooks());
     }
 
     @PostMapping
